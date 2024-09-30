@@ -1,5 +1,5 @@
-# DiscordBot with Python
-> First time learning how to create a Discordbot with Python
+# 🌟DiscordBot Sunkevin
+> Discordbot with cool features for Taiwanese user.
 ## Features:
 > Response Message
 > 
