@@ -1,12 +1,8 @@
-import json
 import discord
 from discord.ext import commands
 from discord import app_commands
 from discord.app_commands import Choice
 import discord.state
-import requests
-import random
-from colorama import Fore, Style
 
 intent = discord.Intents.all()
 intent.message_content = True
