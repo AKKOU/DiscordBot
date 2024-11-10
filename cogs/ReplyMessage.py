@@ -17,6 +17,8 @@ class ReplyMessage(commands.Cog):
         json_data = requests.get("https://akkou.github.io/download/update/dcbot_response/dcbot_main.json")
         json_nssh = requests.get("https://akkou.github.io/download/update/dcbot_response/dcbot_nssh.json")
         json_daan = requests.get("https://akkou.github.io/download/update/dcbot_response/dcbot_daan.json")
+        ban_channel = [1063789237968842792,1019256901411807285]
+
         data = json.loads(json_data.text)
         nssh = json.loads(json_nssh.text)
         daan = json.loads(json_daan.text)
@@ -29,17 +31,18 @@ class ReplyMessage(commands.Cog):
                 return
         msg = message.content.lower()
         #nssh only
-        if(message.guild.id==601296688879108109 and msg in nssh):
-            lst = str(nssh[msg]).split(',')
-            await message.channel.send(lst[random.randrange(0,len(lst))])
-        #daan only
-        elif(message.guild.id==1016954822148231168 and msg in daan):
-            lst = str(daan[msg]).split(',')
-            await message.channel.send(lst[random.randrange(0,len(lst))])
-        #normal message response
-        elif(msg in data): 
-            lst = str(data[msg]).split(',')
-            await message.channel.send(lst[random.randrange(0,len(lst))])
+        if message.channel.id not in ban_channel:
+            if(message.guild.id==601296688879108109 and msg in nssh):
+                lst = str(nssh[msg]).split(',')
+                await message.channel.send(lst[random.randrange(0,len(lst))])
+            #daan only
+            elif(message.guild.id==1016954822148231168 and msg in daan):
+                lst = str(daan[msg]).split(',')
+                await message.channel.send(lst[random.randrange(0,len(lst))])
+            #normal message response
+            elif(msg in data): 
+                lst = str(data[msg]).split(',')
+                await message.channel.send(lst[random.randrange(0,len(lst))])
         
 
 async def setup(bot:commands.Bot):

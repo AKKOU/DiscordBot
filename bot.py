@@ -48,7 +48,7 @@ async def reload(ctx,extension):
 
 async def load_extension():
     # for file in os.listdir("/home/ubuntu/akou/discordbot/cogs"): #linux
-    for file in os.listdir("Z:\DiscordBot\cogs"): #windows
+    for file in os.listdir("Z:/DiscordBot/cogs"): #windows
         if(file.endswith(".py")):
             print(f"載入檔案:{file}..")
             await bot.load_extension(f"cogs.{file[:-3]}")
